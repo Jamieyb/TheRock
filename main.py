@@ -1,3 +1,14 @@
+'''
+I created this App "TheRock" in attempt to learn Kivy, a python framework for developin applications.
+
+The app works very simple. It takes a string input for user to input their name (supposedly a name, but at the practice you can type anything),
+and will return eiter TheRock saying he likes your name or he thinks that yourname is ugly.
+
+However, in this version, I copied most of the codes from other programmer and just modified it to suit my need.
+And this way of working with Kivy is't very effective and considered a bad-practice since you're highly recommended to use the kv design language.
+The design language should makes it simple to separate the interface design from the application logic.
+'''
+
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
@@ -7,9 +18,9 @@ from kivy.uix.textinput import TextInput
 import random
 
 
-class SayHello(App):
+class TheRock(App):
     def build(self):
-        #returns a window object with all it's widgets
+        #returns a window object with all its widgets
         self.window = GridLayout()
         self.window.cols = 1
         self.window.size_hint = (0.5, 0.7)
@@ -43,9 +54,8 @@ class SayHello(App):
                       size_hint= (1,0.5),
                       bold= True,
                       background_color ='#00FFCE',
-                      #remove darker overlay of background colour
-                      # background_normal = ""
                       )
+                        #pick random function to run when the button widget is pressed
         self.button.bind(on_press=random.choice([self.build2, self.build3]))
         self.window.add_widget(self.button)
 
@@ -61,6 +71,6 @@ class SayHello(App):
         self.greeting.text = "HAHAHA,,, " + self.user.text + " is a real ugly name dude."
         self.pfp.source = "da_rock_laugh.jpg"
 
-# run Say Hello App Calss
+# run TheRock Calss
 if __name__ == "__main__":
     SayHello().run()
