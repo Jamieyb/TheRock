@@ -73,4 +73,4 @@ class TheRock(App):
 
 # run TheRock Calss
 if __name__ == "__main__":
-    SayHello().run()
+    TheRock().run()
