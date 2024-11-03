@@ -55,11 +55,14 @@ class TheRock(App):
                       bold= True,
                       background_color ='#00FFCE',
                       )
-                        #pick random function to run when the button widget is pressed
-        self.button.bind(on_press=random.choice([self.build2, self.build3]))
         self.window.add_widget(self.button)
+        self.button.bind(on_press=self.randomize)
 
         return self.window
+
+    def randomize(self, textInput):
+        # Randomly choose a function and call it
+        random.choice([self.build2, self.build3])(self.user.text)
 
     def build2(self, x):
         # change label text and the main image"
